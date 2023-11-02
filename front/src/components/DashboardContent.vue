@@ -1,7 +1,7 @@
 <script setup>
-import DashboardTopBar from '../components/DashboardTopBar.vue'
-import WidgetSmall from '../components/WidgetSmall.vue'
-import WidgetLarge from '../components/Widgetlarge.vue'
+import DashboardTopBar from './DashboardTopBar.vue'
+import WidgetSmall from './WidgetSmall.vue'
+import WidgetLarge from './WidgetLarge.vue'
 </script>
 
 <template>

@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_DB: timeManagerDb
     ports:
-      - "5432:5432"
+      - "5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     hostname: postgres
@@ -21,7 +21,7 @@ services:
       context: ./back
     image: image_back
     ports:
-      - "4000:4000"
+      - "4000"
     depends_on:
       - database
     command: sh -c "mix ecto.create && mix ecto.migrate && mix phx.server"

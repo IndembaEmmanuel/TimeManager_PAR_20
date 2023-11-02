@@ -57,7 +57,7 @@ def auth(conn, %{"email" => email, "password" => password}) do
     |> put_status(:not_found)
     |> json(%{error: "Email or password is not correct"})
   end
-end
+  end
 
 def verfication(conn, %{"email" => email, "token" => user_token}) do
   req = from(u in TimeManager.User, where: u.email == ^email)

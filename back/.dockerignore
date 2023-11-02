@@ -1,0 +1,8 @@
+_build/
+deps/
+Dockerfile
+assets/
+.gitignore
+.dockerignore
+test
+.formatter.exs

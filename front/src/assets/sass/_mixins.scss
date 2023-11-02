@@ -1,0 +1,70 @@
+// FLEX CONTAINER
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+};
+
+@mixin flex-column-center {
+    @include flex-column;
+    justify-content: center;  
+};
+
+@mixin flex-row-center {
+    display: flex;
+    justify-content: center;
+};
+
+// FONT
+@mixin font-title2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0px;
+};
+
+@mixin font-button-body {
+    font-size: $body;
+    font-weight: 500;
+};
+
+@mixin font-caption {
+    font-size: $caption;
+    font-weight: 300;
+};
+
+// RESPONSIVE
+@mixin break-tablet {
+    @media (max-width: $tablet){
+        @content
+    }
+};
+
+@mixin break-mobile {
+    @media (max-width: $mobile){
+        @content
+    }
+};
+
+// GLOBAL 
+@mixin squircle-error {
+    background: paint(squircle);
+    --squircle-smooth: 1;
+    --squircle-radius: 25px;
+    --squircle-outline: 2px;
+    --squircle-fill: #FA2618;
+
+    &:focus {
+        --squircle-fill: #FA2618;;
+    }
+};
+
+@mixin squircle-form {
+    background: paint(squircle);
+    --squircle-smooth: 1;
+    --squircle-radius: 25px;
+    --squircle-outline: 2px;
+    --squircle-fill: rgba(0, 0, 0, 0.40);
+
+    &:focus {
+        --squircle-fill: $color-secondary;
+    }
+};

@@ -1,11 +1,41 @@
-version: '3.8'
+version: '3'
 
 services:
-  db:
+  database:
+    container_name: container_db
     image: postgres
-    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
+      POSTGRES_DB: timeManagerDb
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    hostname: postgres
+    restart: always
+
+  backend:
+    container_name: container_elixir
+    build:
+      context: ./back
+    image: image_back
+    ports:
+      - "4000:4000"
+    depends_on:
+      - database
+    command: sh -c "mix ecto.create && mix ecto.migrate && mix phx.server"
+    restart: always
+
+  frontend:
+    container_name: container_front
+    build:
+      context: ./front
+    image: image_front
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
